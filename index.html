@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Download CSS File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .download-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        // Função para iniciar o download automaticamente e fechar a janela
+        function downloadFile() {
+            // URL do arquivo que você quer baixar
+            var fileUrl = 'malcssstylebackup.css';
+            // Criar um elemento <a> invisível
+            var element = document.createElement('a');
+            // Definir o atributo href com o URL do arquivo
+            element.setAttribute('href', fileUrl);
+            // Definir o atributo download para forçar o download do arquivo com o nome fornecido
+            element.setAttribute('download', 'malcssstylebackup.css');
+            // Adicionar o elemento <a> ao corpo do documento
+            document.body.appendChild(element);
+            // Clicar no elemento <a> para iniciar o download
+            element.click();
+            // Remover o elemento <a> do corpo do documento após o download iniciar
+            document.body.removeChild(element);
+
+            // Fechar a janela atual
+            window.close();
+        }
+
+        // Chamar a função de download ao carregar a página
+        window.onload = function() {
+            downloadFile();
+        };
+    </script>
+</head>
+<body>
+    <h1>Download CSS File</h1>
+    <p>O download do arquivo <strong>malcssstylebackup.css</strong> começará automaticamente.</p>
+    <p>Se o download não iniciar, <a href="malcssstylebackup.css" download="malcssstylebackup.css">clique aqui</a>.</p>
+</body>
+</html>
