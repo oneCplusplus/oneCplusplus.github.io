@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0081)file:///C:/Users/Cau%C3%A3%20V/Documents/GitHub/oneCplusplus.github.io/index.html -->
-<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head><body>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-  
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projeto F.R.I.E.N.D.S</title>
   <link rel="stylesheet" href="./Projeto F.R.I.E.N.D.S_files/all.min.css">
@@ -17,9 +16,17 @@
 
     body {
       font-family: 'Roboto', sans-serif;
-      background: url('https://i.pinimg.com/originals/1b/1b/b5/1b1bb5e2107b007bf4eb7b9eefb072ed.jpg') no-repeat center center fixed;
-      background-size: cover;
       color: #fff;
+    }
+
+    /* Estilos do Vídeo de Fundo */
+    video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
     }
 
     /* Estilos do Cabeçalho */
@@ -28,6 +35,8 @@
       color: #fff;
       padding: 20px 0;
       text-align: center;
+      position: relative; /* Para z-index funcionar corretamente */
+      z-index: 1; /* Coloca o cabeçalho sobre o vídeo */
     }
 
     header h1 {
@@ -154,13 +163,36 @@
       padding: 10px 0;
       background-color: #000; 
       color: #fff;
+      position: relative; /* Para z-index funcionar corretamente */
+      z-index: 1; /* Coloca o rodapé sobre o vídeo */
     }
+ /* Estilos do Vídeo de Fundo */
+  #videoFundo {
+    position: fixed;
+    top: -50px; /* Ajuste conforme necessário para limitar o blur */
+    left: -50px; /* Ajuste conforme necessário para limitar o blur */
+    width: calc(100% + 100px); /* Ajuste conforme necessário para limitar o blur */
+    height: calc(100% + 100px); /* Ajuste conforme necessário para limitar o blur */
+    z-index: -1;
+    filter: blur(10px); /* Efeito de blur */
+    backdrop-filter: blur(10px); /* Filtro de blur para uma aparência mais suave */
+  }
+  
   </style>
+</head>
+<body>
 
 
-  <header>
-    <h1>Projeto F.R.I.E.N.D.S</h1>
-  </header>
+<!-- Vídeo de Fundo -->
+<video autoplay muted loop id="videoFundo">
+  <source src="https://github.com/oneCplusplus/oneCplusplus.github.io/raw/main/background.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+  
+</video>
+
+<header>
+  <h1>Projeto F.R.I.E.N.D.S</h1>
+</header>
 
 <div class="container">
     <h2>Lista de Mods</h2>
@@ -221,102 +253,188 @@
       <li>Eureka! Ships! for Valkyrien Skies (Forge/Fabric) <span class="criadorMod">(por rubydesic)</span></li>
     </ul>
 
-	<a href="https://github.com/oneCplusplus/oneCplusplus.github.io/raw/main/F.R.I.E.N.D.S_Modpack.zip?download=" class="botao-85" onclick="delHackJap()">
-	  <i class="fas fa-download"></i> Baixar Todos os Mods
-	</a>
+  <a href="https://github.com/oneCplusplus/oneCplusplus.github.io/raw/main/F.R.I.E.N.D.S_Modpack.zip?download=" class="botao-85" onclick="delHackJap()">
+    <i class="fas fa-download"></i> Baixar Todos os Mods
+  </a>
 
-  </div>
+</div>
 
-  <footer>
-    <p>© 2024 Mods de Minecraft por oneBlackI. Todos os direitos reservados.</p>
-  </footer>
+<footer>
+  <p>© 2024 Mods de Minecraft por oneBlackI. Todos os direitos reservados.</p>
+</footer>
 
-  <script>
-    function alternarListaMods() {
-      const listaMods = document.getElementById("listaMods");
-      const botao = document.querySelector(".botao-85:not([href])"); // Seleciona o botão "Mostrar/Esconder Mods"
-      const estiloComputado = window.getComputedStyle(listaMods);
-      const alturaMaximaAtual = estiloComputado.getPropertyValue('max-height');
+<script>
+  function alternarListaMods() {
+    const listaMods = document.getElementById("listaMods");
+    const botao = document.querySelector(".botao-85:not([href])"); // Seleciona o botão "Mostrar/Esconder Mods"
+    const estiloComputado = window.getComputedStyle(listaMods);
+    const alturaMaximaAtual = estiloComputado.getPropertyValue('max-height');
 
-      if (alturaMaximaAtual === '0px' || alturaMaximaAtual === '') {
-        listaMods.style.maxHeight = listaMods.scrollHeight + "px";
-        botao.textContent = "Esconder Mods"; 
-      } else {
-        listaMods.style.maxHeight = "0px";
-        botao.textContent = "Mostrar Mods"; 
+    if (alturaMaximaAtual === '0px' || alturaMaximaAtual === '') {
+      listaMods.style.maxHeight = listaMods.scrollHeight + "px";
+      botao.textContent = "Esconder Mods"; 
+    } else {
+      listaMods.style.maxHeight = "0px";
+      botao.textContent = "Mostrar Mods"; 
+    }
+  }
+
+  // Iniciar com a lista de mods visível
+  alternarListaMods();
+  
+  function delHackJap() {
+    var canvas = document.body.appendChild(document.createElement('canvas')),
+    context = canvas.getContext('2d');
+    context.globalCompositeOperation = 'lighter';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    draw();
+
+    var textStrip = ['あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ', 'さ', 'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と', 'な', 'に', 'ぬ', 'ね', 'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん'];
+
+    var stripCount = 150, stripX = new Array(), stripY = new Array(), dY = new Array(), stripFontSize = new Array();
+
+    for (var i = 0; i < stripCount; i++) {
+      stripX[i] = Math.floor(Math.random() * canvas.width);
+      stripY[i] = -100;
+      dY[i] = Math.floor(Math.random() * 5) + 2; // Ajuste de velocidade vertical
+      stripFontSize[i] = Math.floor(Math.random() * 20) + 10; // Ajuste do tamanho da fonte
+    }
+
+    function drawStrip(x, y) {
+      for (var k = 0; k <= 20; k++) {
+        var randChar = textStrip[Math.floor(Math.random() * textStrip.length)];
+        context.font = stripFontSize[y] + 'px sans-serif';
+        if (context.fillText) {
+          switch (k) {
+            case 0:
+              context.fillStyle = '#f7f7f7';
+              break;
+            case 1:
+              context.fillStyle = '#ff1a1a';
+              break;
+            case 2:
+              context.fillStyle = '#e60000';
+              break;
+            case 3:
+              context.fillStyle = '#b30000';
+              break;
+            case 4:
+              context.fillStyle = '#660000';
+              break;
+            case 5:
+              context.fillStyle = '#ff1a1a';
+              break;
+            case 6:
+              context.fillStyle = '#e60000';
+              break;
+            case 7:
+              context.fillStyle = '#b30000';
+              break;
+            case 8:
+              context.fillStyle = '#660000';
+              break;
+            case 9:
+              context.fillStyle = '#ff1a1a';
+              break;
+            case 10:
+              context.fillStyle = '#e60000';
+              break;
+            case 11:
+              context.fillStyle = '#b30000';
+              break;
+            case 12:
+              context.fillStyle = '#660000';
+              break;
+            case 13:
+              context.fillStyle = '#ff1a1a';
+              break;
+            case 14:
+              context.fillStyle = '#e60000';
+              break;
+            case 15:
+              context.fillStyle = '#b30000';
+              break;
+            case 16:
+              context.fillStyle = '#660000';
+              break;
+            case 17:
+              context.fillStyle = '#ff1a1a';
+              break;
+            case 18:
+              context.fillStyle = '#e60000';
+              break;
+            case 19:
+              context.fillStyle = '#b30000';
+              break;
+            case 20:
+              context.fillStyle = '#660000';
+              break;
+          }
+          context.fillText(randChar, x, y);
+        }
+        y -= stripFontSize[y];
       }
     }
 
-    // Iniciar com a lista de mods visível
-    alternarListaMods();
-	
-	function delHackJap() {
-		var canvas = document.body.appendChild(document.createElement('canvas')),
-		context = canvas.getContext('2d');
-	context.globalCompositeOperation = 'lighter';
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-	draw();
+    function draw() {
+      var w = canvas.width;
+      var h = canvas.height;
+      context.clearRect(0, 0, w, h);
 
-	var textStrip = ['あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ', 'さ', 'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と', 'な', 'に', 'ぬ', 'ね', 'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん'];
-
-	var stripCount = 150, stripX = new Array(), stripY = new Array(), dY = new Array(), stripFontSize = new Array();
-
-	for (var i = 0; i < stripCount; i++) {
-		stripX[i] = Math.floor(Math.random() * canvas.width);
-		stripY[i] = -100;
-		dY[i] = Math.floor(Math.random() * 5) + 2; // Ajuste de velocidade vertical
-		stripFontSize[i] = Math.floor(Math.random() * 20) + 10; // Ajuste do tamanho da fonte
-}
-
-var elem, context, timer;
-
-function drawStrip(x, y) {
-    for (var k = 0; k <= 20; k++) {
-        var randChar = textStrip[Math.floor(Math.random() * textStrip.length)];
-        if (context.fillText) {
-            context.fillStyle = 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')'; // Cor aleatória RGB
-            context.fillText(randChar, x, y);
+      for (var j = 0; j < stripCount; j++) {
+        context.fillStyle = '#19e619'; // Cor do texto do console de comandos
+        context.font = stripFontSize[j] + 'px sans-serif';
+        if (stripY[j] > h) {
+          stripX[j] = Math.floor(Math.random() * w);
+          stripY[j] = -100;
+          dY[j] = Math.floor(Math.random() * 5) + 2;
+          stripFontSize[j] = Math.floor(Math.random() * 20) + 10;
+          drawStrip(stripX[j], stripY[j]);
+        } else if (stripY[j] < h) {
+          context.clearRect(stripX[j], stripY[j], w, h);
+          drawStrip(stripX[j], stripY[j]);
         }
-        y -= stripFontSize[k];
-    }
-}
-
-function draw() {
-    // Limpa o canvas e define as propriedades
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.shadowOffsetX = context.shadowOffsetY = 0;
-    context.shadowBlur = 8;
-    context.shadowColor = '#94f475';
-
-    for (var j = 0; j < stripCount; j++) {
-        context.font = stripFontSize[j] + 'px MatrixCode';
-        context.textBaseline = 'top';
-        context.textAlign = 'center';
-
-        if (stripY[j] > canvas.height) {
-            stripX[j] = Math.floor(Math.random() * canvas.width);
-            stripY[j] = -100;
-            stripFontSize[j] = Math.floor(Math.random() * 20) + 10; // Reajusta o tamanho da fonte
-            drawStrip(stripX[j], stripY[j]);
-        } else {
-            drawStrip(stripX[j], stripY[j]);
-        }
-
         stripY[j] += dY[j];
+      }
     }
-    setTimeout(draw, 80); // Ajuste de velocidade de atualização
-}
-	
-	setTimeout(function() {
-            window.close(); // Fecha a janela ao finalizar a animação
-        }, 10000); // Fechar após 5 segundos (ajuste conforme necessário)
-}
 
-  </script>
+    setInterval(draw, 70);
+  }
+  
+document.addEventListener("DOMContentLoaded", function() {
+  const video = document.getElementById("videoFundo");
 
-<<<<<<< HEAD
-</body></html>
-=======
-</body></html>
->>>>>>> 2634fb4981144216c84049e3e14409796b5ea09b
+  // Carregar metadados do vídeo
+  video.addEventListener("loadedmetadata", function() {
+    const duration = video.duration;
+    const cutTime = duration - 3; // Cortar os últimos 3 segundos
+
+    // Adicionar evento para avançar 10 segundos ao pressionar a tecla direita
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "ArrowRight") {
+        const currentTime = video.currentTime;
+        const newTime = currentTime + 10; // Avançar 10 segundos
+
+        if (newTime < cutTime) {
+          video.currentTime = newTime;
+        } else {
+          video.currentTime = cutTime; // Garantir que não ultrapasse o tempo de corte
+        }
+      }
+    });
+
+    // Reiniciar o vídeo quando atingir o ponto de corte para manter o loop contínuo
+    video.addEventListener("timeupdate", function() {
+      if (video.currentTime >= cutTime) {
+        video.currentTime = 0; // Reiniciar o vídeo
+        video.play(); // Continuar tocando
+      }
+    });
+  });
+});
+
+</script>
+
+</body>
+</html>
