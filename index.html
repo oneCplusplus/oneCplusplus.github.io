@@ -195,10 +195,11 @@
 </header>
 
 <div class="container">
-    <h2>Lista de Mods</h2>
-
+  <h2 style="text-align: center;">Lista de Mods</h2>
+  <div style="text-align: center;">
     <button class="botao-85" onclick="alternarListaMods()">Mostrar Mods</button>	
-    <ul id="listaMods" style="max-height: 0px;">
+  </div>
+  <ul id="listaMods" style="max-height: 0px; text-align: center; list-style: none; padding: 0;">
       <li>Comforts (Fabric/Forge/Quilt) <span class="criadorMod">(por TheIllusiveC4)</span></li>
       <li>Create: Eureka! <span class="criadorMod">(por FixerSchis)</span></li>
       <li>Upgrade Aquatic <span class="criadorMod">(por TeamAbnormals)</span></li>
@@ -253,15 +254,19 @@
       <li>Eureka! Ships! for Valkyrien Skies (Forge/Fabric) <span class="criadorMod">(por rubydesic)</span></li>
     </ul>
 
+<div style="text-align: center;">
   <a href="https://github.com/oneCplusplus/oneCplusplus.github.io/raw/main/F.R.I.E.N.D.S_Modpack.zip?download=" class="botao-85" onclick="delHackJap()">
     <i class="fas fa-download"></i> Baixar Todos os Mods
   </a>
+</div>
+
 
 </div>
 
 <footer>
-  <p>© 2024 Mods de Minecraft por oneBlackI. Todos os direitos reservados.</p>
+  <p>© 2024 <strong> F.R.I.E.N.D.S Project </strong> website by <strong>oneBlackI</strong>. All rights reserved. Mods compilation by <strong>DarthArrow</strong>.</p>
 </footer>
+
 
 <script>
   function alternarListaMods() {
@@ -279,8 +284,6 @@
     }
   }
 
-  // Iniciar com a lista de mods visível
-  alternarListaMods();
   
   function delHackJap() {
     var canvas = document.body.appendChild(document.createElement('canvas')),
