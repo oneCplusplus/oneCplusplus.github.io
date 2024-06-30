@@ -1,127 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Mods Download</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1d1f21;
-            color: #c5c6c7;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden; /* Impede a barra de rolagem horizontal */
-            backdrop-filter: blur(10px); /* Blur no fundo */
+<!-- saved from url=(0081)file:///C:/Users/Cau%C3%A3%20V/Documents/GitHub/oneCplusplus.github.io/index.html -->
+<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head><body>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto F.R.I.E.N.D.S</title>
+  <link rel="stylesheet" href="./Projeto F.R.I.E.N.D.S_files/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://i.pinimg.com/originals/1b/1b/b5/1b1bb5e2107b007bf4eb7b9eefb072ed.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    /* Estilos do Cabeçalho */
+    header {
+      background: transparent;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Estilos do Conteúdo Principal */
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Estilos da Lista de Mods */
+    #listaMods {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    li:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .criadorMod {
+      color: #4267B2;
+      font-style: italic;
+    }
+
+    /* Estilos dos Botões */
+    .botao-85 {
+      padding: 0.6em 2em;
+      border: none;
+      outline: none;
+      color: rgb(255, 255, 255);
+      background: #111;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      margin-bottom: 10px; 
+    }
+
+    .botao-85:before {
+      content: "";
+      background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+      );
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      -webkit-filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing-button-85 20s linear infinite;
+      transition: opacity 0.3s ease-in-out;
+      border-radius: 10px;
+    }
+
+    @keyframes glowing-button-85 {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 400% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    .botao-85:after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #222;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
+
+    /* Estilos do Rodapé */
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: #000; 
+      color: #fff;
+    }
+  </style>
+
+
+  <header>
+    <h1>Projeto F.R.I.E.N.D.S</h1>
+  </header>
+
+<div class="container">
+    <h2>Lista de Mods</h2>
+
+    <button class="botao-85" onclick="alternarListaMods()">Mostrar Mods</button>	
+    <ul id="listaMods" style="max-height: 0px;">
+      <li>Comforts (Fabric/Forge/Quilt) <span class="criadorMod">(por TheIllusiveC4)</span></li>
+      <li>Create: Eureka! <span class="criadorMod">(por FixerSchis)</span></li>
+      <li>Upgrade Aquatic <span class="criadorMod">(por TeamAbnormals)</span></li>
+      <li>Just Enough Items (JEI) <span class="criadorMod">(por mezz)</span></li>
+      <li>The Twilight Forest <span class="criadorMod">(por Benimatic)</span></li>
+      <li>Weapons of Miracles - epic fight <span class="criadorMod">(por reascer)</span></li>
+      <li>Ocean's Delight <span class="criadorMod">(por scouter567)</span></li>
+      <li>FTB Teams (Forge) <span class="criadorMod">(por FTB)</span></li>
+      <li>Scuba Gear <span class="criadorMod">(por ModdingLegacy)</span></li>
+      <li>Alex's Caves <span class="criadorMod">(por sbom_xela)</span></li>
+      <li>CreativeCore <span class="criadorMod">(por CreativeMD)</span></li>
+      <li>Obscure API (Forge) <span class="criadorMod">(por Obscuria)</span></li>
+      <li>Epic Fight - Impactful <span class="criadorMod">(por namelesslk)</span></li>
+      <li>Ars Nouveau <span class="criadorMod">(por baileyholl2)</span></li>
+      <li>Xaero's World Map <span class="criadorMod">(por xaero96)</span></li>
+      <li>Xaero's Minimap <span class="criadorMod">(por xaero96)</span></li>
+      <li>Create <span class="criadorMod">(por simibubi)</span></li>
+      <li>Balm (Forge Edition) <span class="criadorMod">(por BlayTheNinth)</span></li>
+      <li>Aquatic Torches <span class="criadorMod">(por realmayus)</span></li>
+      <li>Waystones <span class="criadorMod">(por BlayTheNinth)</span></li>
+      <li>AstikorCarts Redux <span class="criadorMod">(por jusipat)</span></li>
+      <li>Alex's Mobs <span class="criadorMod">(por sbom_xela)</span></li>
+      <li>Architectury API (Fabric/Forge/NeoForge) <span class="criadorMod">(por shedaniel)</span></li>
+      <li>Epic Knights: Shields, Armor and Weapons [Fabric &amp; Forge] <span class="criadorMod">(por magistu_)</span></li>
+      <li>Cloth Config API (Fabric/Forge/NeoForge) <span class="criadorMod">(por shedaniel)</span></li>
+      <li>Dragon Mounts: Legacy <span class="criadorMod">(por Kay9Unit)</span></li>
+      <li>Spells &amp; Shields <span class="criadorMod">(por CAS_ual_TY)</span></li>
+      <li>Sophisticated Core <span class="criadorMod">(por P3pp3rF1y)</span></li>
+      <li>Farmer's Delight <span class="criadorMod">(por vectorwing)</span></li>
+      <li>Epic Fight <span class="criadorMod">(por maninthe_home)</span></li>
+      <li>Curios API (Forge/NeoForge) <span class="criadorMod">(por TheIllusiveC4)</span></li>
+      <li>Callable Horses <span class="criadorMod">(por Tschipp)</span></li>
+      <li>Valkyrien Skies (Forge/Fabric) <span class="criadorMod">(por triode_)</span></li>
+      <li>Compass Coords <span class="criadorMod">(por Insane96)</span></li>
+      <li>Awesome Dungeon Ocean edition - Forge <span class="criadorMod">(por jtl_elisa)</span></li>
+      <li>Xaero's Minimap &amp; World Map - Waystones Compatibility [Forge] <span class="criadorMod">(por ArcaneAlloy)</span></li>
+      <li>Kotlin for Forge <span class="criadorMod">(por thedarkcolour)</span></li>
+      <li>FTB Library (Forge) <span class="criadorMod">(por FTB)</span></li>
+      <li>Aquaculture 2 <span class="criadorMod">(por Shadow)</span></li>
+      <li>Aquamirae (Forge) <span class="criadorMod">(por Obscuria)</span></li>
+      <li>Library Ferret - Forge <span class="criadorMod">(por jtl_elisa)</span></li>
+      <li>Sophisticated Backpacks <span class="criadorMod">(por P3pp3rF1y)</span></li>
+      <li>Mekanism <span class="criadorMod">(por bradyaidanc)</span></li>
+      <li>ItemPhysic Full <span class="criadorMod">(por CreativeMD)</span></li>
+      <li>Diet (Fabric/Forge/Quilt) <span class="criadorMod">(por TheIllusiveC4)</span></li>
+      <li>Blueprint <span class="criadorMod">(por TeamAbnormals)</span></li>
+      <li>Citadel <span class="criadorMod">(por sbom_xela)</span></li>
+      <li>FTB Quests (Forge) <span class="criadorMod">(por FTB)</span></li>
+      <li>Unwrecked Ships (Forge) <span class="criadorMod">(por shadow_of_wights)</span></li>
+      <li>GeckoLib <span class="criadorMod">(por Gecko)</span></li>
+      <li>Born in Chaos <span class="criadorMod">(por mongoose_artist)</span></li>
+      <li>Eureka! Ships! for Valkyrien Skies (Forge/Fabric) <span class="criadorMod">(por rubydesic)</span></li>
+    </ul>
+
+	<a href="https://github.com/oneCplusplus/oneCplusplus.github.io/raw/main/F.R.I.E.N.D.S_Modpack.zip?download=" class="botao-85" onclick="delHackJap()">
+	  <i class="fas fa-download"></i> Baixar Todos os Mods
+	</a>
+
+  </div>
+
+  <footer>
+    <p>© 2024 Mods de Minecraft por oneBlackI. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function alternarListaMods() {
+      const listaMods = document.getElementById("listaMods");
+      const botao = document.querySelector(".botao-85:not([href])"); // Seleciona o botão "Mostrar/Esconder Mods"
+      const estiloComputado = window.getComputedStyle(listaMods);
+      const alturaMaximaAtual = estiloComputado.getPropertyValue('max-height');
+
+      if (alturaMaximaAtual === '0px' || alturaMaximaAtual === '') {
+        listaMods.style.maxHeight = listaMods.scrollHeight + "px";
+        botao.textContent = "Esconder Mods"; 
+      } else {
+        listaMods.style.maxHeight = "0px";
+        botao.textContent = "Mostrar Mods"; 
+      }
+    }
+
+    // Iniciar com a lista de mods visível
+    alternarListaMods();
+	
+	function delHackJap() {
+		var canvas = document.body.appendChild(document.createElement('canvas')),
+		context = canvas.getContext('2d');
+	context.globalCompositeOperation = 'lighter';
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	draw();
+
+	var textStrip = ['あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ', 'さ', 'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と', 'な', 'に', 'ぬ', 'ね', 'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん'];
+
+	var stripCount = 150, stripX = new Array(), stripY = new Array(), dY = new Array(), stripFontSize = new Array();
+
+	for (var i = 0; i < stripCount; i++) {
+		stripX[i] = Math.floor(Math.random() * canvas.width);
+		stripY[i] = -100;
+		dY[i] = Math.floor(Math.random() * 5) + 2; // Ajuste de velocidade vertical
+		stripFontSize[i] = Math.floor(Math.random() * 20) + 10; // Ajuste do tamanho da fonte
+}
+
+var elem, context, timer;
+
+function drawStrip(x, y) {
+    for (var k = 0; k <= 20; k++) {
+        var randChar = textStrip[Math.floor(Math.random() * textStrip.length)];
+        if (context.fillText) {
+            context.fillStyle = 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')'; // Cor aleatória RGB
+            context.fillText(randChar, x, y);
         }
-        header {
-            background-color: #0b0c10;
-            color: #66fcf1;
-            width: 100%;
-            padding: 1.5em 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            z-index: 1000; /* Para estar acima do conteúdo ao rolar */
+        y -= stripFontSize[k];
+    }
+}
+
+function draw() {
+    // Limpa o canvas e define as propriedades
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.shadowOffsetX = context.shadowOffsetY = 0;
+    context.shadowBlur = 8;
+    context.shadowColor = '#94f475';
+
+    for (var j = 0; j < stripCount; j++) {
+        context.font = stripFontSize[j] + 'px MatrixCode';
+        context.textBaseline = 'top';
+        context.textAlign = 'center';
+
+        if (stripY[j] > canvas.height) {
+            stripX[j] = Math.floor(Math.random() * canvas.width);
+            stripY[j] = -100;
+            stripFontSize[j] = Math.floor(Math.random() * 20) + 10; // Reajusta o tamanho da fonte
+            drawStrip(stripX[j], stripY[j]);
+        } else {
+            drawStrip(stripX[j], stripY[j]);
         }
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        main {
-            width: 90%;
-            max-width: 1000px;
-            background-color: rgba(40, 44, 52, 0.9); /* Fundo semi-transparente */
-            padding: 2em;
-            margin-top: 6em; /* Acomoda o cabeçalho fixo */
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-        }
-        h2 {
-            color: #66fcf1;
-            font-size: 2em;
-            margin-bottom: 1em;
-        }
-        .mod-list {
-            list-style: none;
-            padding: 0;
-        }
-        .mod-list li {
-            background-color: #333a40;
-            margin: 0.5em 0;
-            padding: 1em;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-        .mod-list li:hover {
-            background-color: #3a4149;
-        }
-        .mod-list a {
-            text-decoration: none;
-            color: #66fcf1;
-            font-weight: bold;
-            background-color: #0b0c10;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .mod-list a:hover {
-            background-color: #66fcf1;
-            color: #0b0c10;
-        }
-        footer {
-            margin-top: 2em;
-            padding: 1em 0;
-            background-color: #0b0c10;
-            color: #c5c6c7;
-            text-align: center;
-            width: 100%;
-        }
-        .download-all {
-            position: fixed;
-            bottom: 2em;
-            right: 2em;
-            z-index: 1000;
-            background-color: #66fcf1;
-            color: #0b0c10;
-            padding: 1em 2em;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .download-all:hover {
-            background-color: #0b0c10;
-            color: #66fcf1;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Minecraft Mods Download</h1>
-    </header>
-    <main>
-        <h2>Available Mods</h2>
-        <ul class="mod-list">
-            <!-- Inserir links de download -->
-            <li>
-                Comforts (Fabric/Forge/Quilt) (by TheIllusiveC4)
-                <a href="YOUR_LINK_HERE">Download</a>
-            </li>
-            <!-- Inserir outros mods -->
-        </ul>
-    </main>
-    <footer>
-        &copy; 2024 Minecraft Mods by [Your Name]. All rights reserved.
-    </footer>
-    <a href="https://github.com/oneCplusplus/oneCplusplus.github.io/raw/main/F.R.I.E.N.D.S_Modpack.zip?download=" class="download-all">Download All Mods</a>
-</body>
-</html>
+
+        stripY[j] += dY[j];
+    }
+    setTimeout(draw, 80); // Ajuste de velocidade de atualização
+}
+	
+	setTimeout(function() {
+            window.close(); // Fecha a janela ao finalizar a animação
+        }, 10000); // Fechar após 5 segundos (ajuste conforme necessário)
+}
+
+  </script>
+
+</body></html>
