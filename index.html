@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projeto F.R.I.E.N.D.S</title>
   <link rel="stylesheet" href="./Projeto F.R.I.E.N.D.S_files/all.min.css">
+
+<script>
+  // Função para determinar se o site está hospedado localmente ou em um servidor
+  function checkLocalHost() {
+    // Verifica se o protocolo é "file:" (indicando hospedagem local)
+    return window.location.protocol === 'file:';
+  }
+
+  // Função para configurar o link de acordo com a condição
+  function setAboutUsLink() {
+    var linkElement = document.getElementById('aboutLink');
+    var isLocal = checkLocalHost();
+
+    if (isLocal) {
+      // Se estiver hospedando localmente
+      linkElement.href = './about-us.html';
+      linkElement.textContent = 'Sobre os Idealizadores';
+    } else {
+      // Se estiver hospedando em um servidor
+      linkElement.href = 'https://onecplusplus.github.io/about-us';
+      linkElement.target = '_blank'; // Abre em uma nova aba
+      linkElement.textContent = 'About Us';
+    }
+  }
+
+  // Chama a função para configurar o link quando a página carregar
+  document.addEventListener('DOMContentLoaded', setAboutUsLink);
+</script>
+
+<!-- O link inicial com um ID para ser manipulado pelo script -->
+<a id="aboutLink" href="#">Link de Sobre os Idealizadores</a>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
