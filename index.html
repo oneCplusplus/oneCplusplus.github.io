@@ -10,30 +10,31 @@
     /* Estilos para o botão "Sobre nós" */
     .about-button {
         position: fixed;
-        top: 20px; /* Ajuste a distância do topo conforme necessário */
-        right: 20px; /* Ajuste a distância da direita conforme necessário */
-        padding: 10px 20px;
+        top: 15px; /* Ajuste a distância do topo conforme necessário */
+        right: 15px; /* Ajuste a distância da direita conforme necessário */
+        padding: 7.5px 15px;
         background-color: #000;
         color: #fff;
-        border: none;
+        border: 1px solid #000;
         text-align: center;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 18.75px;
         font-family: 'Poppins', sans-serif; /* Utiliza a fonte Poppins */
         cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
+        transition: background-color 0.3s, transform 0.2s, color 0.2s;
         border-radius: 20px; /* Bordas arredondadas */
         z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
     }
 
     .about-button:hover {
-        background-color: #333;
+        background-color: #eee;
+        color: #333;
         transform: translateY(-2px);
     }
 </style>
 
 <!-- Botão "Sobre nós" -->
-<button id="aboutButton" class="about-button">Sobre nós</button>
+<button id="aboutButton" class="about-button"><strong>About Us</strong></button>
 
 <script>
     // Função para determinar se o site está hospedado localmente ou em um servidor
@@ -66,18 +67,47 @@
     });
 </script>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project F.R.I.E.N.D.S</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./Projeto F.R.I.E.N.D.S_files/all.min.css">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<style>
+    /* Estilos para o botão "Sobre nós" */
+    .about-button {
+        position: fixed;
+        top: 15px; /* Ajuste a distância do topo conforme necessário */
+        right: 15px; /* Ajuste a distância da direita conforme necessário */
+        padding: 7.5px 15px;
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #000;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18.75px;
+        font-family: 'Poppins', sans-serif; /* Utiliza a fonte Poppins */
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s, color 0.2s;
+        border-radius: 20px; /* Bordas arredondadas */
+        z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+    }
+
+    .about-button:hover {
+        background-color: #eee;
+        color: #333;
+        transform: translateY(-2px);
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Poppins', sans-serif; /* Utiliza a fonte Poppins para todo o corpo */
       color: #fff;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     /* Estilos do Vídeo de Fundo */
@@ -101,7 +131,7 @@
     }
 
     header h1 {
-      font-family: 'MinecraftSeven', sans-serif;
+      font-family: 'Poppins', sans-serif; /* Utiliza a fonte Poppins */
       font-size: 3em;
       margin-bottom: 10px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -124,7 +154,7 @@
         transform: translateY(0);
       }
     }
-	
+  
     /* Estilos do Conteúdo Principal */
     .container {
       max-width: 800px;
@@ -183,6 +213,7 @@
       -webkit-user-select: none;
       touch-action: manipulation;
       margin-bottom: 10px; 
+      font-family: 'Poppins', sans-serif; /* Utiliza a fonte Poppins */
     }
 
     .botao-85:before {
@@ -241,22 +272,27 @@
     footer {
       text-align: center;
       padding: 10px 0;
-      background-color: #000; 
-      color: #fff;
-      position: relative; /* Para z-index funcionar corretamente */
-      z-index: 1; /* Coloca o rodapé sobre o vídeo */
+      background-color: var(--primary-color);
+      color: var(--white);
+      position: relative;
+      z-index: 2; /* Garante que o footer esteja na frente do overlay e do canvas */
     }
- /* Estilos do Vídeo de Fundo */
-  #videoFundo {
-    position: fixed;
-    top: -50px; /* Ajuste conforme necessário para limitar o blur */
-    left: -50px; /* Ajuste conforme necessário para limitar o blur */
-    width: calc(100% + 100px); /* Ajuste conforme necessário para limitar o blur */
-    height: calc(100% + 100px); /* Ajuste conforme necessário para limitar o blur */
-    z-index: -1;
-    filter: blur(10px); /* Efeito de blur */
-    backdrop-filter: blur(10px); /* Filtro de blur para uma aparência mais suave */
-  }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Estilos do Vídeo de Fundo */
+    #videoFundo {
+      position: fixed;
+      top: -50px; /* Ajuste conforme necessário para limitar o blur */
+      left: -50px; /* Ajuste conforme necessário para limitar o blur */
+      width: calc(100% + 100px); /* Ajuste conforme necessário para limitar o blur */
+      height: calc(100% + 100px); /* Ajuste conforme necessário para limitar o blur */
+      z-index: -1;
+      filter: blur(10px); /* Efeito de blur */
+      backdrop-filter: blur(10px); /* Filtro de blur para uma aparência mais suave */
+    }
   
   </style>
 </head>
@@ -271,7 +307,7 @@
 
 
 <header>
-  <h1>Projeto F.R.I.E.N.D.S</h1>
+  <h1>PROJECT F.R.I.E.N.D.S</h1>
 </header>
 
 <div class="container">
