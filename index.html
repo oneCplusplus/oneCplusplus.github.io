@@ -6,6 +6,35 @@
   <title>Projeto F.R.I.E.N.D.S</title>
   <link rel="stylesheet" href="./Projeto F.R.I.E.N.D.S_files/all.min.css">
 
+<style>
+  /* Estilos para o botão "Sobre nós" */
+  .about-button {
+    position: fixed;
+    top: 20px; /* Ajuste a distância do topo conforme necessário */
+    right: 20px; /* Ajuste a distância da direita conforme necessário */
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 20px; /* Bordas arredondadas */
+    z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+  }
+
+  .about-button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+  }
+</style>
+
+<!-- Botão "Sobre nós" -->
+<button id="aboutButton" class="about-button">Sobre nós</button>
+
 <script>
   // Função para determinar se o site está hospedado localmente ou em um servidor
   function checkLocalHost() {
@@ -15,27 +44,30 @@
 
   // Função para configurar o link de acordo com a condição
   function setAboutUsLink() {
-    var linkElement = document.getElementById('aboutLink');
+    var linkElement = document.getElementById('aboutButton');
     var isLocal = checkLocalHost();
 
     if (isLocal) {
       // Se estiver hospedando localmente
-      linkElement.href = './about-us.html';
-      linkElement.textContent = 'Sobre os Idealizadores';
+      linkElement.addEventListener('click', function() {
+        window.location.href = './about-us.html';
+      });
     } else {
       // Se estiver hospedando em um servidor
-      linkElement.href = 'https://onecplusplus.github.io/about-us';
-      linkElement.target = '_blank'; // Abre em uma nova aba
-      linkElement.textContent = 'About Us';
+      linkElement.addEventListener('click', function() {
+        window.open('https://onecplusplus.github.io/about-us', '_blank');
+      });
     }
   }
 
-  // Chama a função para configurar o link quando a página carregar
-  document.addEventListener('DOMContentLoaded', setAboutUsLink);
+    // Chama a função para configurar o botão quando a página carregar
+    document.addEventListener('DOMContentLoaded', function() {
+      setAboutUsLink();
+      var buttonElement = document.getElementById('aboutButton');
+      buttonElement.innerHTML = '<strong>Sobre nós</strong>';
+    });
+  </script>
 </script>
-
-<!-- O link inicial com um ID para ser manipulado pelo script -->
-<a id="aboutLink" href="#">Link de Sobre os Idealizadores</a>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
@@ -72,11 +104,30 @@
     }
 
     header h1 {
+      font-family: 'MinecraftSeven', sans-serif;
       font-size: 3em;
       margin-bottom: 10px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
+    /* Estilos de Animação */
+    .letter {
+      display: inline-block;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+	
     /* Estilos do Conteúdo Principal */
     .container {
       max-width: 800px;
@@ -221,6 +272,7 @@
     Seu navegador não suporta vídeo HTML5.
   </video>
 
+
 <header>
   <h1>Projeto F.R.I.E.N.D.S</h1>
 </header>
@@ -286,7 +338,7 @@
     </ul>
 
 <div style="text-align: center;">
-  <a href="https://github.com/oneCplusplus/oneCplusplus.github.io/raw/main/F.R.I.E.N.D.S_Modpack.zip?download=" class="botao-85" onclick="delHackJap()">
+  <a href="https://github.com/oneCplusplus/oneCplusplus.github.io/raw/main/F.R.I.E.N.D.S_Modpack.zip?download=" class="botao-85">
     <i class="fas fa-download"></i> Baixar Todos os Mods
   </a>
 </div>
