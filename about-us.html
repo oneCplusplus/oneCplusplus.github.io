@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Idealizadores</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link para o seu arquivo de estilos, se houver -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,30 +24,6 @@
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border-radius: 8px;
-        }
-        .idealizadores {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .idealizador {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
-        }
-        .idealizador img {
-            width: 150px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        .idealizador h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        .idealizador p {
-            font-size: 1rem;
-            color: #666;
         }
         .modelo-3d {
             text-align: center;
@@ -91,22 +66,6 @@
     </header>
 
     <main>
-        <section class="idealizadores">
-            <h2>Conheça os Idealizadores</h2>
-            <div class="idealizador">
-                <img src="idealizador1.jpg" alt="Idealizador 1">
-                <h3>Nome do Idealizador 1</h3>
-                <p>Descrição breve do Idealizador 1.</p>
-            </div>
-
-            <div class="idealizador">
-                <img src="idealizador2.jpg" alt="Idealizador 2">
-                <h3>Nome do Idealizador 2</h3>
-                <p>Descrição breve do Idealizador 2.</p>
-            </div>
-            <!-- Adicione mais idealizadores conforme necessário -->
-        </section>
-
         <section class="modelo-3d">
             <h2>Nosso Modelo 3D</h2>
             <canvas id="modelo3D"></canvas>
@@ -135,26 +94,15 @@
                 const model = gltf.scene;
                 scene.add(model);
 
-                // Ajuste do tamanho do modelo para melhor visualização
-                model.scale.set(0.5, 0.5, 0.5);
-
-                // Verifica se há animações
-                if (gltf.animations && gltf.animations.length > 0) {
-                    const mixer = new THREE.AnimationMixer(model);
-                    gltf.animations.forEach((clip) => {
-                        mixer.clipAction(clip).play();
-                    });
-
-                    // Função para atualizar a animação
-                    function animate() {
-                        requestAnimationFrame(animate);
-                        mixer.update(0.01); // Valor do tempo de atualização da animação
-                        renderer.render(scene, camera);
-                    }
-                    animate();
-                } else {
+                // Animação do modelo 3D (opcional)
+                const clock = new THREE.Clock();
+                function animate() {
+                    requestAnimationFrame(animate);
+                    const delta = clock.getDelta();
+                    // Adicione animações aqui, se necessário
                     renderer.render(scene, camera);
                 }
+                animate();
             }, undefined, function(error) {
                 console.error(error);
             });
