@@ -1,112 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Idealizadores</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-        .modelo-3d {
-            text-align: center;
-            margin-top: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            background-color: #fff;
-            padding: 20px;
-        }
-        .modelo-3d canvas {
-            width: 100%;
-            height: 400px;
-            border-radius: 8px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            width: 100%;
-            clear: both;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            font-family: 'Arial', sans-serif;
-        }
-        footer p {
-            margin: 0;
-            font-size: 14px;
-        }
-        footer strong {
-            font-weight: bold;
-            color: #fff;
-        }
-    </style>
+    <title>Sobre nós</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <h1>About Us - Idealizadores</h1>
+    <div class="overlay"></div>
+    <header class="header">
+        <h1>About Us — Idealizadores</h1>
     </header>
 
-    <main>
-        <section class="modelo-3d">
-            <h2>Nosso Modelo 3D</h2>
-            <canvas id="modelo3D"></canvas>
+    <main class="about-container">
+        <section class="intro">
+            <h2>Conheça mais sobre nós</h2>
+        </section>
+        <section class="idealizers about-grid">
+            <div class="caua idealizer-box team-member">
+                <h3>kram3rr</h3>
+                <p>Estudante de Engenharia Elétrica na Universidade Federal do Rio Grande do Norte e um filósofo influente na modernidade, 20 anos</p>
+				<br>
+                <model-viewer id="model-kram3rr"
+                    src="https://raw.githubusercontent.com/oneCplusplus/oneCplusplus.github.io/main/model%20(2).gltf"
+                    alt="3D Model" camera-controls autoplay interaction-prompt="none" 
+                    rotation-per-second="0.25" ios-src="" ios-src="default">
+                    <script>
+                        const modelKram3rr = document.querySelector('#model-kram3rr');
+
+                        modelKram3rr.addEventListener('load', () => {
+                            modelKram3rr.cameraControls = true;
+                            modelKram3rr.interactionPrompt = 'none';
+                            modelKram3rr.cameraOrbit = '0';
+                            modelKram3rr.style.width = '500px'; // Definindo largura fixa para aumentar o tamanho
+                            modelKram3rr.style.height = '500px'; // Definindo altura fixa para aumentar o tamanho
+                        });
+                    </script>
+                </model-viewer>
+				<br><br>
+<style>
+    .autobiografia {
+        border: 1px solid #ccc;
+        padding: 20px;
+        font-size: 1.3rem;
+        text-align: justify;
+        word-wrap: break-word;
+        max-width: 80%;
+        margin: 20px auto;
+        box-sizing: border-box;
+        width: fit-content; /* Ajusta a largura ao conteúdo */
+    }
+
+    .autobiografia h3 {
+        margin-bottom: 10px;
+    }
+
+    .autobiografia p {
+        margin: 0;
+    }
+</style>
+</head>
+<body>
+    <div class="autobiografia">
+        <h3>Autobiografia</h3>
+        <p>
+            Cauã Vitor Figueredo Silva, conhecido como Kram3rr, é um indivíduo multifacetado que transcende os limites das profissões convencionais. Autointitulado filósofo influente na modernidade, seu pensamento profundo e sua abordagem crítica às questões contemporâneas ecoam além dos corredores acadêmicos. Em meio às suas reflexões filosóficas, Cauã também trilha os caminhos da Engenharia Eletricisito. Com precisão matemática e criatividade inovadora, ele ilumina não apenas mentes, mas também circuitos complexos, mostrando que o conhecimento técnico pode coexistir harmoniosamente com a busca pelo entendimento mais profundo da existência humana. Seu trabalho não se limita aos livros e às equações. Cauã desafia as fronteiras do pensamento convencional, provando que, assim como a corrente elétrica flui através dos fios, o conhecimento flui através das ideias, conectando o mundo material ao abstrato. Em suma, Cauã Vitor Figueredo Silva personifica a fusão entre a engenharia pragmática e a filosofia intelectual, um verdadeiro catalisador de ideias que redefine o que significa ser um "filósofo engenheiro".
+        </p>
+    </div>
+<script>
+function ajustarTamanhoTexto() {
+    var container = document.querySelector('.Autobiografia');
+    var texto = document.getElementById('autobiografia-text');
+    
+    var fontSize = 1.3; // Tamanho inicial do texto em rem
+    var maxWidth = container.clientWidth; // Largura máxima da caixa
+    
+    // Define uma margem de segurança para ajuste do texto
+    var margemSeguranca = 10; // em pixels
+    
+    // Reduz o tamanho do texto até que ele caiba dentro da caixa
+    while (texto.scrollWidth > maxWidth - margemSeguranca && fontSize > 0.5) {
+        fontSize -= 0.1;
+        texto.style.fontSize = fontSize + 'rem';
+    }
+}
+
+// Chama a função ao carregar a página e redimensionar a janela
+document.addEventListener('DOMContentLoaded', ajustarTamanhoTexto);
+window.addEventListener('resize', ajustarTamanhoTexto);
+
+// Chama a função diretamente após a definição
+ajustarTamanhoTexto();
+</script>
+<br>
+            </div>
+            <div class="igor idealizer-box team-member">
+                <h3>DarthArrow</h3>
+				<p class="intro-text">Estudante de Direito na Universidade Federal do Rio Grande do Norte, detentor de notório saber jurídico, aspirante à Ministro do Supremo Tribunal Federal e um dos indivíduos mais sabidos que vivem no Brasil, 21 anos</p>
+                <model-viewer id="model-darthArrow"
+                    src="https://raw.githubusercontent.com/oneCplusplus/oneCplusplus.github.io/main/model.gltf"
+                    alt="3D Model" camera-controls autoplay interaction-prompt="none"
+                    rotation-per-second="0.25" ios-src="" ios-src="default">
+                    <script>
+                        const modelDarthArrow = document.querySelector('#model-darthArrow');
+
+                        modelDarthArrow.addEventListener('load', () => {
+                            modelDarthArrow.cameraControls = true;
+                            modelDarthArrow.interactionPrompt = 'true';
+                            modelDarthArrow.cameraOrbit = '10';
+                            modelDarthArrow.style.width = '500px'; // Definindo largura fixa para aumentar o tamanho
+                            modelDarthArrow.style.height = '500px'; // Definindo altura fixa para aumentar o tamanho
+                        });
+                    </script>
+                </model-viewer>
+    <div class="autobiografia">
+        <h3>Biografia</h3>
+        <p>
+            Igor Fonseca de Carvalho, filho de Darth Vader, DarthArrow, um gênio jurista com um profundo compromisso com a justiça e a equidade social. Desde cedo, Igor demonstrou uma aptidão excepcional para a lei e um desejo incansável de transformar o sistema judiciário brasileiro. Sua jornada acadêmica o levou aos mais altos reconhecimentos, marcando presença em debates cruciais sobre direitos humanos e jurisprudência.
+
+            Como estudante exemplar, Igor mergulhou nos estudos jurídicos, acumulando um vasto conhecimento sobre a constituição e os princípios fundamentais que regem nossa sociedade. Sua visão visionária não se limita apenas aos livros de direito, mas se estende à prática e à defesa dos direitos fundamentais de todos os cidadãos.
+
+            A ambição de Igor vai além das salas de aula e dos tribunais. Ele aspira não apenas a influenciar, mas a liderar. Sua meta é servir ao país como ministro do Supremo Tribunal Federal, um bastião de integridade e justiça. Igor está preparado para enfrentar os desafios complexos do sistema judicial brasileiro e para moldar um futuro onde a igualdade perante a lei seja uma realidade para todos os brasileiros.
+
+            Em resumo, Igor da Silva é mais do que um estudioso do direito; ele é um defensor incansável da justiça e um potencial transformador do sistema judiciário nacional.
+        </p>
+    </div>
+	<br>
         </section>
     </main>
 
     <footer>
-        <p>© 2024 <strong>F.R.I.E.N.D.S Project</strong> website by <strong>oneBlackI</strong>. All rights reserved. Mods compilation by <strong>DarthArrow</strong></p>
+        <p>© 2024 <strong>F.R.I.E.N.D.S Project</strong> website by <strong>oneBlackI</strong>. All rights reserved. Mods compilation by <strong>DarthArrow</strong>.</p>
     </footer>
 
-    <!-- Script para carregar o modelo 3D -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
-    <script>
-        // Carregar e exibir o modelo 3D
-        window.onload = function() {
-            const canvas = document.getElementById('modelo3D');
-            const renderer = new THREE.WebGLRenderer({ canvas });
-            const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
-            camera.position.set(0, 0, 5);
-            
-            const scene = new THREE.Scene();
-            const loader = new THREE.GLTFLoader();
-
-            loader.load('https://raw.githubusercontent.com/oneCplusplus/oneCplusplus.github.io/main/model.gltf', function(gltf) {
-                const model = gltf.scene;
-                scene.add(model);
-
-                // Animação do modelo 3D (opcional)
-                const clock = new THREE.Clock();
-                function animate() {
-                    requestAnimationFrame(animate);
-                    const delta = clock.getDelta();
-                    // Adicione animações aqui, se necessário
-                    renderer.render(scene, camera);
-                }
-                animate();
-            }, undefined, function(error) {
-                console.error(error);
-            });
-        };
-    </script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
+
+<style>
+  /* Estilos para o botão "Home Page" */
+  .home-button {
+    position: fixed;
+    top: 20px; /* Ajuste a distância do topo conforme necessário */
+    right: 20px; /* Ajuste a distância da direita conforme necessário */
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif; /* Utiliza a fonte Poppins */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, color 0.2s;
+    border-radius: 20px; /* Bordas arredondadas */
+    z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+  }
+
+  .home-button:hover {
+    background-color: #eee;
+    color: #333;
+    transform: translateY(-2px);
+  }
+</style>
+
+<!-- Botão "Home Page" -->
+<button id="homeButton" class="home-button"><strong> Home Page</strong></button>
+
+<script>
+  // Função para determinar se o site está hospedado localmente ou em um servidor
+  function checkLocalHost() {
+    // Verifica se o protocolo é "file:" (indicando hospedagem local)
+    return window.location.protocol === 'file:';
+  }
+
+  // Função para configurar o link de acordo com a condição
+  function setHomePageLink() {
+    var buttonElement = document.getElementById('homeButton');
+    var isLocal = checkLocalHost();
+
+    if (isLocal) {
+      // Se estiver hospedando localmente
+      buttonElement.addEventListener('click', function() {
+        window.location.href = './index.html';
+      });
+    } else {
+      // Se estiver hospedando em um servidor
+      buttonElement.addEventListener('click', function() {
+        window.open('https://onecplusplus.github.io/', '_blank');
+      });
+    }
+  }
+
+  // Chama a função para configurar o botão quando a página carregar
+  document.addEventListener('DOMContentLoaded', function() {
+    setHomePageLink();
+  });
+</script>
 </html>
+
+<style>
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configurações Globais */
+body {
+    font-family: 'Poppins', sans-serif; /* Alteração para fonte Poppins */
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    height: 100%;
+    background-color: #000; /* Cor de fundo preta */
+    zoom: 75%; /* Zoom inicial */
+}
+
+/* Paleta de Cores */
+:root {
+    --primary-color: #000;
+    --secondary-color: #61dafb;
+    --accent-color: #4e54c8;
+    --text-color: #fff;
+    --background-color: #000;
+    --black: #000;
+}
+
+/* Overlay para melhorar a legibilidade */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay preto com 50% de opacidade */
+    z-index: -1;
+}
+
+/* Tipografia Responsiva */
+body {
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: 'Poppins', sans-serif; /* Alteração para fonte Poppins */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2; /* Garante que o header esteja na frente do overlay e do canvas */
+}
+
+/* Seção de Introdução */
+.intro {
+    padding: 50px 0;
+    text-align: center;
+    background-color: var(--white);
+}
+
+.intro h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Grid Layout */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--white);
+}
+
+/* Flexbox para Alinhamento */
+.team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos dos idealizadores */
+.idealizers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--white);
+}
+
+.intro-text {
+    font-family: 'Poppins', sans-serif; /* Alteração para fonte Poppins */
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.idealizer-box {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-color);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    word-break: break-word; /* Quebra de palavras dentro do texto */
+    max-width: 40%; /* Largura máxima da caixa */
+    z-index: 1; /* Z-index inicial para todas as caixas de idealizador */
+    height: 100%; /* Garante que a caixa ocupa toda a altura */
+}
+
+
+
+.idealizer-box:hover {
+    transform: scale(1.05);
+    z-index: 2; /* Aumenta o z-index ao passar o mouse */
+}
+
+.idealizer-box h3 {
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.idealizer-box p {
+    text-align: center;
+}
+
+/* Estilos dos idealizadores */
+.caua {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--accent-color); /* Traçado branco */
+    position: relative;
+    overflow: hidden;
+    margin-right: 22px; /* Distância entre as caixas de idealizadores */
+    margin-bottom: 22px; /* Distância inferior para não encostar no rodapé */
+	margin-left: 40px;
+}
+
+.igor {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 2px solid #2e3192; /* Traçado azul escuro */
+    position: relative;
+    overflow: hidden;
+    margin-left: 22px; /* Distância entre as caixas de idealizadores */
+    margin-bottom: 22px; /* Distância inferior para não encostar no rodapé */
+	margin-top: -5px;
+}
+
+/* Animação de cor na borda */
+@keyframes borderAnimation {
+    0% {
+        box-shadow: 0 0 0 0 var(--accent-color), 0 0 0 0 var(--accent-color);
+    }
+    50% {
+        box-shadow: 0 0 0 5px var(--accent-color), 0 0 0 10px var(--accent-color);
+    }
+    100% {
+        box-shadow: 0 0 0 0 var(--accent-color), 0 0 0 0 var(--accent-color);
+    }
+}
+
+/* Estilos dos idealizadores */
+.caua::before,
+.igor::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: -1;
+    transition: transform 0.5s ease-in-out;
+}
+
+.caua:hover::before,
+.igor:hover::before {
+    transform: scale(1.05);
+}
+
+.caua:hover {
+    animation: borderAnimation 3s linear infinite; /* Reduz a duração da animação */
+}
+
+.igor:hover {
+    animation: borderAnimation 3s linear infinite; /* Reduz a duração da animação */
+}
+
+.caua {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.igor {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Animações de CSS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Imagens Responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos do Rodapé */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    position: relative;
+    z-index: 2; /* Garante que o footer esteja na frente do overlay e do canvas */
+}
+
+footer p {
+    margin: 0;
+}
+</style>
+
+<script>
+// Função para aplicar efeito de borda animada com cor brilhante
+function applyBorderAnimation(selector) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(element => {
+        // Captura a cor da borda atual
+        const borderColor = getComputedStyle(element).borderColor;
+
+        // Cria um elemento ::before para aplicar o efeito
+        const borderElement = document.createElement('div');
+        borderElement.classList.add('border-animation');
+        element.appendChild(borderElement);
+
+        // Aplica o efeito ao passar o mouse
+        element.addEventListener('mouseenter', () => {
+            borderElement.style.animation = 'borderAnimation 12s linear infinite';
+        });
+
+        element.addEventListener('mouseleave', () => {
+            borderElement.style.animation = 'none';
+        });
+
+        // Função para atualizar o estilo da borda animada
+        function updateBorderAnimation() {
+            borderElement.style.borderColor = borderColor;
+        }
+
+        updateBorderAnimation();
+
+        // Atualiza o estilo se a janela for redimensionada
+        window.addEventListener('resize', updateBorderAnimation);
+    });
+}
+
+// Chama a função para aplicar o efeito nas classes desejadas
+applyBorderAnimation('.kram3rr');
+applyBorderAnimation('.dartharrow');
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let lazyImages = [].slice.call(document.querySelectorAll("img.lazyload"));
+    if ("IntersectionObserver" in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazyload");
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    }
+});
+
+// Ajusta a altura das caixas de testes dinamicamente
+function ajustarAlturaTestes() {
+    const caixas = document.querySelectorAll('.idealizer-box');
+
+    caixas.forEach(caixa => {
+        const testes = caixa.querySelector('.testes');
+        const modelos = caixa.querySelector('.modelos');
+
+        // Reseta a altura para calcular novamente
+        testes.style.height = 'auto';
+        modelos.style.height = 'auto';
+
+        // Calcula as alturas
+        const testesHeight = testes.offsetHeight;
+        const modelosHeight = modelos.offsetHeight;
+
+        // Define a mesma altura para ambas as caixas
+        if (testesHeight > modelosHeight) {
+            modelos.style.height = testesHeight + 'px';
+        } else {
+            testes.style.height = modelosHeight + 'px';
+        }
+    });
+}
+
+// Chama a função ao carregar a página e quando a janela for redimensionada
+document.addEventListener('DOMContentLoaded', ajustarAlturaTestes);
+window.addEventListener('resize', ajustarAlturaTestes);
+
+// Atualiza a posição do fundo parallax conforme a rolagem
+document.addEventListener('scroll', function() {
+    const parallaxContent = document.querySelector('.parallax-content');
+    let scrollPosition = window.scrollY;
+
+    // Ajusta a posição do fundo parallax
+    parallaxContent.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+});
+</script>
