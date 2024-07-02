@@ -135,21 +135,26 @@
                 const model = gltf.scene;
                 scene.add(model);
 
-                // Animação do modelo 3D
-                const clock = new THREE.Clock();
-                function animate() {
-                    requestAnimationFrame(animate);
-                    const delta = clock.getDelta();
-                    if (model.animations && model.animations.length > 0) {
-                        for (let i = 0; i < model.animations.length; i++) {
-                            const animation = model.animations[i];
-                            const action = renderer.animations.add(animation);
-                            action.play();
-                        }
+                // Ajuste do tamanho do modelo para melhor visualização
+                model.scale.set(0.5, 0.5, 0.5);
+
+                // Verifica se há animações
+                if (gltf.animations && gltf.animations.length > 0) {
+                    const mixer = new THREE.AnimationMixer(model);
+                    gltf.animations.forEach((clip) => {
+                        mixer.clipAction(clip).play();
+                    });
+
+                    // Função para atualizar a animação
+                    function animate() {
+                        requestAnimationFrame(animate);
+                        mixer.update(0.01); // Valor do tempo de atualização da animação
+                        renderer.render(scene, camera);
                     }
+                    animate();
+                } else {
                     renderer.render(scene, camera);
                 }
-                animate();
             }, undefined, function(error) {
                 console.error(error);
             });
