@@ -142,7 +142,7 @@
 </style>
 
 <!-- Botão "Home Page" -->
-<button id="homeButton" class="home-button"><strong> Home Page</strong></button>
+<button id="homeButton" class="home-button"><strong>Home Page</strong></button>
 
 <script>
   // Função para determinar se o site está hospedado localmente ou em um servidor
@@ -164,7 +164,7 @@
     } else {
       // Se estiver hospedando em um servidor
       buttonElement.addEventListener('click', function() {
-        window.open('https://onecplusplus.github.io/', '_blank');
+        window.location.href = 'https://onecplusplus.github.io/';
       });
     }
   }
