@@ -5,33 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Idealizadores</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link para o seu arquivo de estilos, se houver -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .idealizadores {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .idealizador {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .idealizador img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .idealizador h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .idealizador p {
+            font-size: 1rem;
+            color: #666;
+        }
+        .modelo-3d {
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+            padding: 20px;
+        }
+        .modelo-3d canvas {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            clear: both;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        footer strong {
+            font-weight: bold;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <!-- Incluir o cabeçalho se necessário -->
+        <h1>About Us - Idealizadores</h1>
     </header>
 
     <main>
         <section class="idealizadores">
-            <h1>Conheça os Idealizadores</h1>
+            <h2>Conheça os Idealizadores</h2>
             <div class="idealizador">
                 <img src="idealizador1.jpg" alt="Idealizador 1">
-                <h2>Nome do Idealizador 1</h2>
+                <h3>Nome do Idealizador 1</h3>
                 <p>Descrição breve do Idealizador 1.</p>
             </div>
 
             <div class="idealizador">
                 <img src="idealizador2.jpg" alt="Idealizador 2">
-                <h2>Nome do Idealizador 2</h2>
+                <h3>Nome do Idealizador 2</h3>
                 <p>Descrição breve do Idealizador 2.</p>
             </div>
             <!-- Adicione mais idealizadores conforme necessário -->
         </section>
+
+        <section class="modelo-3d">
+            <h2>Nosso Modelo 3D</h2>
+            <canvas id="modelo3D"></canvas>
+        </section>
     </main>
 
     <footer>
-        <!-- Incluir o rodapé se necessário -->
+        <p>© 2024 <strong>F.R.I.E.N.D.S Project</strong> website by <strong>oneBlackI</strong>. All rights reserved. Mods compilation by <strong>DarthArrow</strong></p>
     </footer>
 
+    <!-- Script para carregar o modelo 3D -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+        // Carregar e exibir o modelo 3D
+        window.onload = function() {
+            const canvas = document.getElementById('modelo3D');
+            const renderer = new THREE.WebGLRenderer({ canvas });
+            const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+            camera.position.set(0, 0, 5);
+            
+            const scene = new THREE.Scene(); // Defina a cena aqui
+            const loader = new THREE.GLTFLoader();
+
+            loader.load('./model.gltf', function(gltf) {
+                const model = gltf.scene;
+                scene.add(model);
+
+                // Animação do modelo 3D
+                const clock = new THREE.Clock();
+                function animate() {
+                    requestAnimationFrame(animate);
+                    const delta = clock.getDelta();
+                    if (model.animations && model.animations.length > 0) {
+                        for (let i = 0; i < model.animations.length; i++) {
+                            const animation = model.animations[i];
+                            const action = renderer.animations.add(animation);
+                            action.play();
+                        }
+                    }
+                    renderer.render(scene, camera);
+                }
+                animate();
+            }, undefined, function(error) {
+                console.error(error);
+            });
+        };
+    </script>
 </body>
 </html>
